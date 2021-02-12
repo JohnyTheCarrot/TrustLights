@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="TrustLights.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TrustLights"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Loaded="FrameworkElement_OnLoaded">
+        <TextBox HorizontalAlignment="Left" x:Name="TextBoxMacAddress" Margin="10,10,0,0" PlaceholderText="Mac Address" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <TextBox HorizontalAlignment="Left" x:Name="TextBoxEmailAddress" Margin="10,47,0,0" PlaceholderText="Email Address" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" InputScope="EmailNameOrAddress"/>
+        <PasswordBox HorizontalAlignment="Left" x:Name="TextBoxPassword" Margin="10,84,0,0" PlaceholderText="Password" VerticalAlignment="Top" Width="230"/>
+        <Button Content="Save" Margin="10,121,0,0" VerticalAlignment="Top" Click="CredentialsSaveButtonClick"/>
+        <Button Margin="64,121,0,0" VerticalAlignment="Top" Click="LogoutButtonClick">Log out</Button>
+    </Grid>
+</Page>

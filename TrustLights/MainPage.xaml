@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="TrustLights.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TrustLights"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <NavigationView x:Name="NavView" Loaded="NavView_Loaded" ItemInvoked="NavView_OnItemInvoked">
+            <NavigationView.Resources>
+                <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
+                              BackgroundSource="HostBackdrop"
+                              TintColor="#000000"
+                              TintOpacity="0.2"
+                              TintLuminosityOpacity="0.5"/>
+            </NavigationView.Resources>
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="Groups" Content="Groups" x:Name="NavViewGroups" Icon="Folder"/>
+                <NavigationViewItem Tag="Devices" Content="Devices" x:Name="NavViewDevices" Icon="MapDrive"/>
+            </NavigationView.MenuItems>
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"/>
+            </ScrollViewer>
+        </NavigationView>
+    </Grid>
+</Page>
