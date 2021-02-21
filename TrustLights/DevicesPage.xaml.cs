@@ -23,7 +23,7 @@ namespace TrustLights
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DevicesPage : Page
+    public sealed partial class DevicesPage
     {
         private TrustDevice[] Modules;
         public DevicesPage()
@@ -33,7 +33,12 @@ namespace TrustLights
 
         private void DevicesListView_OnLoaded(object sender, RoutedEventArgs e)
         {
-            var modules = MainPage.Hub.Devices.Where(d => d.Data.module != null);
+            var modules = MainPage.Hub.Devices
+                .Where(d => d.Data.module != null)
+                .Where(d =>
+                    d.DeviceType == TrustDeviceType.ZigbeeLight
+                    || d.DeviceType == TrustDeviceType.Light
+                );
             Modules = modules.ToArray();
             DevicesListView.ItemsSource = modules;
         }

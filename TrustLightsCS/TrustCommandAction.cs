@@ -4,12 +4,8 @@ using System.Text;
 
 namespace TrustLightsCS
 {
-    public enum TrustHttpAction
+    public enum TrustCommandAction
     {
-        Check,
-        Sync,
-        Login,
-        Add,
-        GetMultiple
+        ZigbeeOnOff = 3
     }
 }

@@ -48,6 +48,20 @@ namespace TrustLightsCS
         public string VersionData { get; }
         public object Rule { get; }
         private string RawData { get; }
+
+        public TrustDeviceType DeviceType
+        {
+            get
+            {
+                if (Data.group != null)
+                    return (TrustDeviceType) Data.group.device;
+                if (Data.module != null)
+                    return (TrustDeviceType) Data.module.device;
+
+                return TrustDeviceType.NotApplicable;
+            }
+        }
+
         public TrustDeviceData Data
         {
             get

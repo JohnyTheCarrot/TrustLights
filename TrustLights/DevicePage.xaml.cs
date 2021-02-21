@@ -23,5 +23,15 @@ namespace TrustLights
             var color = new TrustColorRgb(ColorPicker.Color.R, ColorPicker.Color.G, ColorPicker.Color.B);
             CurrentDevice.SetColor(color);
         }
+
+        private void ButtonTurnOn(object sender, RoutedEventArgs e)
+        {
+            CurrentDevice.TurnOn();
+        }
+
+        private void ButtonTurnOff(object sender, RoutedEventArgs e)
+        {
+            CurrentDevice.TurnOff();
+        }
     }
 }

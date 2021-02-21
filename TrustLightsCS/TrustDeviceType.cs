@@ -6,6 +6,7 @@ namespace TrustLightsCS
 {
     public enum TrustDeviceType
     {
+        NotApplicable = -1,
         Switch = 1,
         Dimmer = 2,
         Actuator = 3,
