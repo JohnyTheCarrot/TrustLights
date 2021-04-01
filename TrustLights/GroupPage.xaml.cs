@@ -21,16 +21,19 @@ namespace TrustLights
         {
             var color = new TrustColorRgb(ColorPicker.Color.R, ColorPicker.Color.G, ColorPicker.Color.B);
             CurrentGroup.SetColor(color);
+            txtUrl.Text = TrustHttp.lastURL;
         }
 
         private void ButtonTurnOn(object sender, RoutedEventArgs e)
         {
             CurrentGroup.TurnOn();
+            txtUrl.Text = TrustHttp.lastURL;
         }
 
         private void ButtonTurnOff(object sender, RoutedEventArgs e)
         {
             CurrentGroup.TurnOff();
+            txtUrl.Text = TrustHttp.lastURL;
         }
     }
 }

@@ -22,16 +22,19 @@ namespace TrustLights
         {
             var color = new TrustColorRgb(ColorPicker.Color.R, ColorPicker.Color.G, ColorPicker.Color.B);
             CurrentDevice.SetColor(color);
+            txtUrl.Text = TrustHttp.lastURL;
         }
 
         private void ButtonTurnOn(object sender, RoutedEventArgs e)
         {
             CurrentDevice.TurnOn();
+            txtUrl.Text = TrustHttp.lastURL;
         }
 
         private void ButtonTurnOff(object sender, RoutedEventArgs e)
         {
             CurrentDevice.TurnOff();
+            txtUrl.Text = TrustHttp.lastURL;
         }
     }
 }

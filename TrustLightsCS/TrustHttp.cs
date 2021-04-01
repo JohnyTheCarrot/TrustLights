@@ -2,13 +2,12 @@
 using System.IO;
 using System.Net;
 using System.Text.Json;
-using Windows.ApplicationModel.DataTransfer;
 
 namespace TrustLightsCS
 {
     public class TrustHttp
     {
-        private static readonly DataPackage DataPackage = new DataPackage();
+        public static string lastURL;
 
         private const string baseUrl = "https://trustsmartcloud2.com/ics2000_api/";
 
@@ -20,10 +19,7 @@ namespace TrustLightsCS
         private static (string, HttpStatusCode, string) MakeRequest(string path, TrustHttpParams trustHttpParams)
         {
             var url = GetUrl(path, trustHttpParams);
-
-            DataPackage.SetText(url);
-            Clipboard.SetContent(DataPackage);
-
+            lastURL = url;
             var request = WebRequest.Create(url);
             var response = (HttpWebResponse)request.GetResponse();
             using (var dataStream = response.GetResponseStream())

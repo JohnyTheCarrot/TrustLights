@@ -13,5 +13,6 @@
         <Button Content="Apply Color" Margin="0,525,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Button Content="Turn On" Margin="98,525,0,0" VerticalAlignment="Top" Click="ButtonTurnOn"/>
         <Button Content="Turn Off" Margin="174,525,0,0" VerticalAlignment="Top" Click="ButtonTurnOff"/>
+        <TextBox HorizontalAlignment="Left" Margin="0,562,0,0" Text="URL will come here" TextWrapping="Wrap" VerticalAlignment="Top" Width="550" Height="79" x:Name="txtUrl"/>
     </Grid>
 </Page>
