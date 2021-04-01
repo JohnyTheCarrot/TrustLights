@@ -1,13 +1,15 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text.Json;
+using Windows.ApplicationModel.DataTransfer;
 
 namespace TrustLightsCS
 {
     public class TrustHttp
     {
+        private static readonly DataPackage DataPackage = new DataPackage();
+
         private const string baseUrl = "https://trustsmartcloud2.com/ics2000_api/";
 
         private static string GetUrl(string path, TrustHttpParams trustHttpParams)
@@ -18,6 +20,10 @@ namespace TrustLightsCS
         private static (string, HttpStatusCode, string) MakeRequest(string path, TrustHttpParams trustHttpParams)
         {
             var url = GetUrl(path, trustHttpParams);
+
+            DataPackage.SetText(url);
+            Clipboard.SetContent(DataPackage);
+
             var request = WebRequest.Create(url);
             var response = (HttpWebResponse)request.GetResponse();
             using (var dataStream = response.GetResponseStream())
@@ -68,7 +74,7 @@ namespace TrustLightsCS
                 }
             };
 
-            var (responseText, code, codeDescription) = MakeRequest("command.php", trustParams);
+            var (responseText, _, _) = MakeRequest("command.php", trustParams);
 
             Debug.WriteLine(responseText);
             //throw new TrustHttpError(codeDescription, code);
